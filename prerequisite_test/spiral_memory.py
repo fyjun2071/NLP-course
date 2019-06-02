@@ -17,14 +17,17 @@
 
 
 def spiral_memory(n):
-    # 找到n所在的圈及此圈最大值
     k = 0
     max_num = 1
+    # 找到n所在的圈及此圈最大值
     while True:
         max_num += 8 * k
         if max_num >= n:
             break
         k += 1
+    if k == 0:
+        return 0
+    # 计算距离
     mod = (max_num - n) % (2 * k)
     if mod < k:
         return 2 * k - mod
@@ -32,4 +35,9 @@ def spiral_memory(n):
         return mod
 
 
+print(spiral_memory(1))
+print(spiral_memory(12))
+print(spiral_memory(23))
 print(spiral_memory(1024))
+print(spiral_memory(100000))
+print(spiral_memory(2345678))
